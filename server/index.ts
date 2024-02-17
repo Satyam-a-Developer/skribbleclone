@@ -10,6 +10,8 @@ const io = new Server(server, {
   },
 })
 
+ 
+
 type Point = { x: number; y: number }
 
 type DrawLine = {
@@ -19,6 +21,14 @@ type DrawLine = {
 }
 
 io.on('connection', (socket) => {
+
+  // console.log('a user connected');
+  socket.on('input', (text) =>     {
+      console.log(text ,"text is already");
+      io.emit('input', `has joined ${text} ` ); 
+        
+  });
+
   socket.on('client-ready', () => {
     socket.broadcast.emit('get-canvas-state')
   })

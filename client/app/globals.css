@@ -1,3 +1,83 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+body {
+    min-height: 100vh;
+    background-image: url("https://skribbl.io/img/background.png");
+  }
+  
+  canvas {
+    border: 1px solid #000;
+    background-color: aliceblue;
+    /* width: 900px; */
+  }
+  
+  /* app class code */
+  
+  select {
+    font-size: 25px;
+    margin: 10px;
+  }
+  
+  input[type="text"] {
+    font-size: 20px;
+    /* margin: 10px; */
+  }
+  
+  .logo {
+    width: 1300px;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100px;
+    background-image: url("https://skribbl.io/img/logo.gif");
+  }
+  
+  .characters {
+    margin: auto;
+    width: 20rem;
+    height: 3rem;
+    background-color: antiquewhite;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .Character-avatar {
+    width: 300px;
+    margin: auto;
+    height: 100px;
+    background-color: rgba(0, 204, 255, 0.351);
+  }
+  
+  .User-box {
+    margin-top: 100px !important;
+    padding: 10px;
+    background-color: rgba(0, 0, 255, 0.386);
+    width: 400px;
+    display: flex;
+    margin: auto;
+    /* justify-content: center; */
+    flex-direction: column;
+  }
+  
+  .play a {
+    text-decoration: none;
+    margin-top: 10px;
+  
+    font-size: 30px;
+    background-color: rgb(9, 255, 9);
+    color: white;
+    padding-inline: 160px;
+    border: none;
+    margin: 10px;
+  }
+  
+  .private button {
+    border: none;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgba(9, 148, 255, 0.868);
+    color: white;
+    padding-inline: 140px;
+  }
+  
