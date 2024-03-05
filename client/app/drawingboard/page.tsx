@@ -1,5 +1,4 @@
 "use client";
-
 import { FC, useEffect, useState } from "react";
 import { useDraw } from "../../hooks/useDraw";
 import { ChromePicker } from "react-color";
@@ -27,15 +26,12 @@ const page: FC<pageProps> = ({}) => {
 
   useEffect(() => {
     const ctx = canvasRef.current?.getContext("2d");
-
     socket.emit("client-ready");
-
     socket.on("get-canvas-state", () => {
       if (!canvasRef.current?.toDataURL()) return;
       console.log("sending canvas state");
       socket.emit("canvas-state", canvasRef.current.toDataURL());
     });
-
     socket.on("canvas-state-from-server", (state: string) => {
       console.log("I received the state");
       const img = new Image();
@@ -50,12 +46,9 @@ const page: FC<pageProps> = ({}) => {
       ({ prevPoint, currentPoint, color }: DrawLineProps) => {
         if (!ctx) return console.log("no ctx here");
         drawLine({ prevPoint, currentPoint, ctx, color });
-      }
+      },
     );
-
     socket.on("clear", clear);
-
-
     return () => {
       socket.off("draw-line");
       socket.off("get-canvas-state");
@@ -76,13 +69,13 @@ const page: FC<pageProps> = ({}) => {
         onMouseDown={onMouseDown}
         width={750}
         height={600}
-        className="border border-black rounded-md"
+        className="rounded-md border border-black"
       />
       <div className=" absolute">
         <ChromePicker color={color} onChange={(e) => setColor(e.hex)} />
         <button
           type="button"
-          className="p-2 rounded-md border border-black"
+          className="rounded-md border border-black p-2"
           onClick={() => socket.emit("clear")}
         >
           Clear canvas
